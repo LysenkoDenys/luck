@@ -22,7 +22,7 @@ h1 {
 }
 
 .squares-container {
-  max-width: 650px;
+  max-width: 360px;
   margin: 10px auto;
   max-height: 100vh;
   display: flex;
@@ -70,4 +70,24 @@ h1 {
 
 .disabled {
   pointer-events: none;
+}
+
+button {
+  background-color: rgb(133, 139, 139);
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 2em;
+  font-weight: 700;
+  box-shadow: 5px 5px 5px black;
+}
+button:hover {
+  background-color: rgb(113, 119, 119);
+  scale: 0.99;
+  color: rgb(215, 238, 11);
+}
+
+button:active {
+  background-color: rgb(103, 109, 109);
+  box-shadow: 3px 3px 3px black;
+  color: rgb(200, 208, 1);
 }

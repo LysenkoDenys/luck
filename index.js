@@ -33,8 +33,8 @@
 // homework:
 // 1. create primitive lottery.
 //* 2. create squares with digits.
-// 3. user have only 3 tries.
-//* 4. if user guess - alert 'you win'.
+//* 3. user have only 3 tries.
+//* 4. if user guess - alert 'you win' and clean up the page .
 // 5. if user not guess  - alert 'try one more time (2 times)'.
 // 6. if user not guess 3 times - alert 'you lose' and reset all squares.
 //* 7. do not allow user click the same button one more time.
@@ -42,6 +42,7 @@
 function CreateSquares(number, isWin) {
   this.number = number;
   this.isWin = isWin;
+  numTries = 0;
 }
 
 const square1 = new CreateSquares(1, true);
@@ -55,7 +56,6 @@ const square8 = new CreateSquares(8, false);
 const square9 = new CreateSquares(9, false);
 
 function renderSquares(objSquare) {
-  let numTries = 0;
   const container = document.querySelector(".squares-container");
   const square = document.createElement("div");
   square.classList.add("square");
@@ -66,10 +66,29 @@ function renderSquares(objSquare) {
     square.classList.add("disabled");
     if (objSquare.isWin) {
       square.classList.add("square-right");
-      alert("Hey, congratulations you have WON!!!");
+      alert(
+        `Hey, congratulations you have WON with ${numTries} attempt(s) from 3!!!`
+      );
+      setTimeout(() => {
+        document.body.innerHTML = "";
+        const greetings = document.createElement("h1");
+        const buttonRestart = document.createElement("button");
+        document.body.appendChild(greetings);
+        greetings.innerHTML = "congratulations, you`re lucky ass!";
+        // const img = document.createElement("img");
+        // img.setAttribute(
+        //   "href",
+        //   "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdepositphotos.com%2Fvectors%2Fyou-win.html&psig=AOvVaw2e4r1_mkm5DoF1w4EVMm9q&ust=1696365303989000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJjtgbSb2IEDFQAAAAAdAAAAABAD"
+        // );
+        buttonRestart.innerHTML = "Restart";
+        buttonRestart.setAttribute("onClick", "window.location.reload()");
+        document.body.appendChild(buttonRestart);
+      }, 1000);
     } else {
       square.classList.add("square-wrong");
-      alert(`Hey, you are NOT win yet ${numTries}`);
+      alert(
+        `Hey, you are NOT win yet with ${numTries} attempt(s) from 3 - try one more time...`
+      );
     }
   };
 
