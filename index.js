@@ -39,6 +39,8 @@
 //* 6. if user not guess 3 times - alert 'you lose' and reset all squares.
 //* 7. do not allow user click the same button one more time.
 
+const container = document.querySelector(".squares-container");
+
 function CreateSquares(number, isWin) {
   this.number = number;
   this.isWin = isWin;
@@ -47,6 +49,12 @@ function CreateSquares(number, isWin) {
 
 let win1, win2, win3, win4, win5, win6, win7, win8, win9;
 const numRandom = Math.floor(Math.random() * 10);
+
+// possibility:
+const h1Element = document.querySelector("h1");
+const h2Element = document.createElement("h2");
+h2Element.innerHTML = `possibility of winning: ${Math.floor((3 / 9) * 100)}%`;
+h1Element.after(h2Element);
 
 switch (numRandom) {
   case 1:
@@ -91,14 +99,16 @@ const square8 = new CreateSquares(8, win8);
 const square9 = new CreateSquares(9, win9);
 
 function renderSquares(objSquare) {
-  // const h2Message = document.createElement(h2);
-  const container = document.querySelector(".squares-container");
   const square = document.createElement("div");
-  // const pAuthor = document.createElement("p");
+
   square.classList.add("square");
   square.innerText = objSquare.number;
 
   const clickHandler = () => {
+    h1Element.innerHTML = `Check your luck by ${2 - numTries} tries`;
+    h2Element.innerHTML = `possibility of winning: ${Math.floor(
+      ((2 - numTries) / (8 - numTries)) * 100
+    )}%`;
     numTries++;
     square.classList.add("disabled");
     if (objSquare.isWin && numTries <= 3) {
@@ -121,7 +131,7 @@ function renderSquares(objSquare) {
         buttonRestart.innerHTML = "Restart";
         buttonRestart.setAttribute("onClick", "window.location.reload()");
         document.body.appendChild(buttonRestart);
-      }, 500);
+      }, 200);
     } else if (numTries < 3) {
       square.classList.add("square-wrong");
       // alert(
@@ -145,17 +155,22 @@ function renderSquares(objSquare) {
         buttonRestart.innerHTML = "Restart";
         buttonRestart.setAttribute("onClick", "window.location.reload()");
         document.body.appendChild(buttonRestart);
-      }, 500);
+      }, 200);
     }
   };
 
   square.onclick = () => clickHandler();
 
   container.appendChild(square);
-  // body.appendChild(pAuthor);
 
   return;
 }
+
+// author:
+const pElement = document.createElement("p");
+pElement.innerHTML =
+  "dev by <a href='https://www.linkedin.com/in/lysenko-denys/' target='_blank' rel='noreferrer'>Denys Lysenko</a>";
+container.after(pElement);
 
 renderSquares(square1);
 renderSquares(square2);
