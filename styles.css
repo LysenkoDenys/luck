@@ -69,8 +69,16 @@ h2 {
 .square-wrong {
   background-color: red;
 }
+.square-wrong:hover,
+.square-wrong:active {
+  background-color: red;
+}
 
 .square-right {
+  background-color: green;
+}
+.square-right:hover,
+.square-right:active {
   background-color: green;
 }
 
