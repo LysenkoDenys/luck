@@ -1,6 +1,8 @@
 # The Luck Tester
 
-### The application is homework for this video: https://www.youtube.com/watch?v=p7JCiE2kFV0&ab_channel=SavchukIT testing your luck bu guessing 1 number from 9 by 3 attempts. The application deployed here:https://luck-nine.vercel.app/
+### The application is homework for this video (by Vitaly Savchuk): https://www.youtube.com/watch?v=p7JCiE2kFV0&ab_channel=SavchukIT testing your luck by guessing 1 number from 9 by 3 attempts.
+
+<p>The application deployed here: https://luck-nine.vercel.app/</p>
 
 <h5>This app allows you:</h5>
 <ul>
