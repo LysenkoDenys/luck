@@ -30,8 +30,9 @@
 // console.log(user5); // object
 // console.log(user6); // object
 
+//============================================================================================
 // homework of mine after refactoring influenced by Vitaly (15 lines reduced):
-//* 1. create primitive lottery.
+//* 1. create primitive lottery with random win-number.
 //* 2. create squares with digits.
 //* 3. user have only 3 tries.
 //* 4. if user guess - alert 'you win' and clean up the page .
@@ -167,6 +168,8 @@ container.after(pElement);
 
 renderSquares(squares);
 
+//============================================================================================
+
 // homework by Vitaly:
 // function LotteryCard(index, isWinning) {
 //   this.index = index;
@@ -217,7 +220,7 @@ renderSquares(squares);
 // }
 
 // renderSquares(cards);
-
+//============================================================================================
 // homework of mine before refactoring:
 // const container = document.querySelector(".squares-container");
 
