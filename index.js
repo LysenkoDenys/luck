@@ -97,12 +97,29 @@ function CreateSquares(number, isWin) {
 }
 
 let win1, win2, win3, win4, win5, win6, win7, win8, win9;
+// win10, win11, win12;
 const numRandom = Math.floor(Math.random() * 10);
+const squares = [
+  new CreateSquares(1, win1),
+  new CreateSquares(2, win2),
+  new CreateSquares(3, win3),
+  new CreateSquares(4, win4),
+  new CreateSquares(5, win5),
+  new CreateSquares(6, win6),
+  new CreateSquares(7, win7),
+  new CreateSquares(8, win8),
+  new CreateSquares(9, win9),
+  // new CreateSquares(10, win10),
+  // new CreateSquares(11, win11),
+  // new CreateSquares(12, win12),
+];
 
 // possibility:
 const h1Element = document.querySelector("h1");
 const h2Element = document.createElement("h2");
-h2Element.innerHTML = `possibility of winning: ${Math.floor((3 / 9) * 100)}%`;
+h2Element.innerHTML = `possibility of winning: ${Math.floor(
+  (3 / squares.length) * 100
+)}%`;
 h1Element.after(h2Element);
 
 switch (numRandom) {
@@ -136,18 +153,6 @@ switch (numRandom) {
   default:
     break;
 }
-
-const squares = [
-  new CreateSquares(1, win1),
-  new CreateSquares(2, win2),
-  new CreateSquares(3, win3),
-  new CreateSquares(4, win4),
-  new CreateSquares(5, win5),
-  new CreateSquares(6, win6),
-  new CreateSquares(7, win7),
-  new CreateSquares(8, win8),
-  new CreateSquares(9, win9),
-];
 
 function renderSquares(objSquare) {
   objSquare.forEach((item) => {
