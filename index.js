@@ -115,7 +115,7 @@ function CreateSquares(number, isWin) {
         const greetings = document.createElement("h1");
         const buttonRestart = document.createElement("button");
         document.body.appendChild(greetings);
-        greetings.innerHTML = "May be you get luck in other time...";
+        greetings.innerHTML = `May be you get luck in other time... by the way it was ${numRandom}`;
 
         const img = document.createElement("img");
         img.setAttribute("src", "./img/lose.png");
