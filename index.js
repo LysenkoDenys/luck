@@ -42,6 +42,40 @@
 
 const container = document.querySelector(".squares-container");
 let numTries = 0;
+let win1, win2, win3, win4, win5, win6, win7, win8, win9;
+// win10, win11, win12;
+const numRandom = Math.floor(Math.random() * 10);
+switch (numRandom) {
+  case 1:
+    win1 = 1;
+    break;
+  case 2:
+    win2 = 1;
+    break;
+  case 3:
+    win3 = 1;
+    break;
+  case 4:
+    win4 = 1;
+    break;
+  case 5:
+    win5 = 1;
+    break;
+  case 6:
+    win6 = 1;
+    break;
+  case 7:
+    win7 = 1;
+    break;
+  case 8:
+    win8 = 1;
+    break;
+  case 9:
+    win9 = 1;
+    break;
+  default:
+    break;
+}
 
 function CreateSquares(number, isWin) {
   this.number = number;
@@ -96,9 +130,7 @@ function CreateSquares(number, isWin) {
   };
 }
 
-let win1, win2, win3, win4, win5, win6, win7, win8, win9;
-// win10, win11, win12;
-const numRandom = Math.floor(Math.random() * 10);
+console.log(numRandom); //
 const squares = [
   new CreateSquares(1, win1),
   new CreateSquares(2, win2),
@@ -121,38 +153,6 @@ h2Element.innerHTML = `possibility of winning: ${Math.floor(
   (3 / squares.length) * 100
 )}%`;
 h1Element.after(h2Element);
-
-switch (numRandom) {
-  case 1:
-    win1 = 1;
-    break;
-  case 2:
-    win2 = 1;
-    break;
-  case 3:
-    win3 = 1;
-    break;
-  case 4:
-    win4 = 1;
-    break;
-  case 5:
-    win5 = 1;
-    break;
-  case 6:
-    win6 = 1;
-    break;
-  case 7:
-    win7 = 1;
-    break;
-  case 8:
-    win8 = 1;
-    break;
-  case 9:
-    win9 = 1;
-    break;
-  default:
-    break;
-}
 
 function renderSquares(objSquare) {
   objSquare.forEach((item) => {
