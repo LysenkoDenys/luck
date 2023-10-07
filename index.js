@@ -44,7 +44,9 @@ const container = document.querySelector(".squares-container");
 let numTries = 0;
 let win1, win2, win3, win4, win5, win6, win7, win8, win9;
 // win10, win11, win12;
-const numRandom = Math.floor(Math.random() * 10);
+const max = 10;
+const min = 1;
+const numRandom = Math.floor(Math.random() * (max - min) + min);
 switch (numRandom) {
   case 1:
     win1 = 1;
@@ -80,57 +82,56 @@ switch (numRandom) {
 function CreateSquares(number, isWin) {
   this.number = number;
   this.isWin = isWin;
-  this.clickHandler = function (item, square) {
-    ++numTries;
-    h1Element.innerHTML = `Check your luck by ${3 - numTries} tries`;
-    h2Element.innerHTML = `possibility of winning: ${Math.floor(
-      ((3 - numTries) / (squares.length - numTries)) * 100
-    )}%`;
-    square.classList.add("disabled");
-    if (item.isWin && numTries <= 3) {
-      square.classList.add("square-right");
-
-      setTimeout(() => {
-        document.body.innerHTML = null;
-        const greetings = document.createElement("h1");
-        const buttonRestart = document.createElement("button");
-        document.body.appendChild(greetings);
-        greetings.innerHTML = "congratulations, you`re lucky ass!";
-
-        const img = document.createElement("img");
-        img.setAttribute("src", "./img/win.png");
-        img.setAttribute("alt", "you win!");
-        document.body.appendChild(img);
-
-        buttonRestart.innerHTML = "Restart";
-        buttonRestart.setAttribute("onClick", "window.location.reload()");
-        document.body.appendChild(buttonRestart);
-      }, 200);
-    } else if (numTries < 3) {
-      square.classList.add("square-wrong");
-    } else if ((numTries = 3)) {
-      square.classList.add("square-wrong");
-      setTimeout(() => {
-        document.body.innerHTML = null;
-        const greetings = document.createElement("h1");
-        const buttonRestart = document.createElement("button");
-        document.body.appendChild(greetings);
-        greetings.innerHTML = `May be you get luck in other time... by the way it was ${numRandom}`;
-
-        const img = document.createElement("img");
-        img.setAttribute("src", "./img/lose.png");
-        img.setAttribute("alt", "you lose!");
-        document.body.appendChild(img);
-
-        buttonRestart.innerHTML = "Restart";
-        buttonRestart.setAttribute("onClick", "window.location.reload()");
-        document.body.appendChild(buttonRestart);
-      }, 200);
-    }
-  };
 }
+CreateSquares.prototype.clickHandler = function (item, square) {
+  ++numTries;
+  h1Element.innerHTML = `Check your luck by ${3 - numTries} tries`;
+  h2Element.innerHTML = `possibility of winning: ${Math.floor(
+    ((3 - numTries) / (squares.length - numTries)) * 100
+  )}%`;
+  square.classList.add("disabled");
+  if (item.isWin && numTries <= 3) {
+    square.classList.add("square-right");
 
-console.log(numRandom); //
+    setTimeout(() => {
+      document.body.innerHTML = null;
+      const greetings = document.createElement("h1");
+      const buttonRestart = document.createElement("button");
+      document.body.appendChild(greetings);
+      greetings.innerHTML = "congratulations, you`re lucky ass!";
+
+      const img = document.createElement("img");
+      img.setAttribute("src", "./img/win.png");
+      img.setAttribute("alt", "you win!");
+      document.body.appendChild(img);
+
+      buttonRestart.innerHTML = "Restart";
+      buttonRestart.setAttribute("onClick", "window.location.reload()");
+      document.body.appendChild(buttonRestart);
+    }, 200);
+  } else if (numTries < 3) {
+    square.classList.add("square-wrong");
+  } else if ((numTries = 3)) {
+    square.classList.add("square-wrong");
+    setTimeout(() => {
+      document.body.innerHTML = null;
+      const greetings = document.createElement("h1");
+      const buttonRestart = document.createElement("button");
+      document.body.appendChild(greetings);
+      greetings.innerHTML = `May be you get luck in other time... by the way it was ${numRandom}`;
+
+      const img = document.createElement("img");
+      img.setAttribute("src", "./img/lose.png");
+      img.setAttribute("alt", "you lose!");
+      document.body.appendChild(img);
+
+      buttonRestart.innerHTML = "Restart";
+      buttonRestart.setAttribute("onClick", "window.location.reload()");
+      document.body.appendChild(buttonRestart);
+    }, 200);
+  }
+};
+
 const squares = [
   new CreateSquares(1, win1),
   new CreateSquares(2, win2),
